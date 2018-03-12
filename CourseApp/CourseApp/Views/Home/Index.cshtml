@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    @using Microsoft.EntityFrameworkCore.Infrastructure
+@model CoursesViewModel
+}
+
+    <div>
+        
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Date</th>
+                <th scope="col">Instructor</th>
+            </tr>
+            </thead>
+            <tbody>
+                @foreach (var course in Model.Courses)
+                    {
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>@course.Name</td>
+                            <td>@course.StartDate.ToLongDateString()</td>
+                            <td>@course.Instructor.Name</td>
+                        </tr>
+
+                    }
+               
+        </table>
+        
+
+        
+
+    </div>
