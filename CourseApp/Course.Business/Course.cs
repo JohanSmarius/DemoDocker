@@ -5,8 +5,6 @@ namespace Course.Business
 {
     public class Course
     {
-        private List<Student> _enlistedStudents = new List<Student>();
-
         public int Id { get; set; }
         public string Name { get; set; }
 
@@ -14,12 +12,6 @@ namespace Course.Business
 
         public Instructor Instructor { get; set; }
 
-        public IEnumerable<Student> EnlistedStudents => _enlistedStudents;
-
-        public void Enlist(Student student)
-        {
-            _enlistedStudents.Add(student);
-        }
-
+        public int InstructorId { get; set; }
     }
 }

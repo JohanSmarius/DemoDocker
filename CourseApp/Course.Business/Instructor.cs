@@ -7,7 +7,5 @@ namespace Course.Business
     public class Instructor : BusinessBase
     {
         public string Name { get; set; }
-
-        public List<string> Compententies { get; set; }
     }
 }
