@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  courseapp:
+    image: courseapp
+    build:
+      context: .
+      dockerfile: CourseApp/Dockerfile
+    environment:
+      - "Api:BaseAddress=http://coursewebapi"
+
+  coursewebapi:
+    image: coursewebapi
+    build:
+      context: .
+      dockerfile: CourseWebApi/Dockerfile
+
