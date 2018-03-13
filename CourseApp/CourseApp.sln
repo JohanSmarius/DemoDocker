@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseApp", "CourseApp\CourseApp.csproj", "{236CDB0D-A03E-4593-B8E5-261E00162735}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseApp", "CourseApp\CourseApp.csproj", "{236CDB0D-A03E-4593-B8E5-261E00162735}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Course.Business", "Course.Business\Course.Business.csproj", "{24D59157-69A8-4763-BA87-957F50BC4D65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Course.Business", "Course.Business\Course.Business.csproj", "{24D59157-69A8-4763-BA87-957F50BC4D65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseWebApi", "CourseWebApi\CourseWebApi.csproj", "{4752160D-5FED-40B0-A714-4C55FE9D535E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{24D59157-69A8-4763-BA87-957F50BC4D65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24D59157-69A8-4763-BA87-957F50BC4D65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24D59157-69A8-4763-BA87-957F50BC4D65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4752160D-5FED-40B0-A714-4C55FE9D535E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4752160D-5FED-40B0-A714-4C55FE9D535E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4752160D-5FED-40B0-A714-4C55FE9D535E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4752160D-5FED-40B0-A714-4C55FE9D535E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

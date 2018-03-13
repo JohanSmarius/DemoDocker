@@ -2,42 +2,46 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CourseApp.Models;
+using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
+using StackExchange.Redis;
 using bu = Course.Business;
 
 namespace CourseApp.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly IConfiguration _configuration;
+
+        public HomeController(IConfiguration configuration)
         {
+            _configuration = configuration;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var client = new HttpClient
+            {
+                BaseAddress = new Uri(_configuration["Api:BaseAddress"]),
+            };
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+            
+            var response = await client.GetAsync("/api/Courses");
+
+            var coursesFromService = await response.Content.ReadAsStringAsync();
+
+            var courses = JsonConvert.DeserializeObject<List<bu.Course>>(coursesFromService);
+
+
             var viewModel = new CoursesViewModel
             {
-                Courses = new List<bu.Course>
-                {
-                    new bu.Course
-                    {
-                        Name = "C# For Beginners",
-                        StartDate = new DateTime(2018, 03, 23, 09, 00, 00),
-                        Instructor = new bu.Instructor
-                        {
-                            Name = "Johan"
-                        }
-                    },
-
-                    new bu.Course
-                    {
-                        Name = "Design Patterns for .NET Developers",
-                        StartDate = new DateTime(2018, 03, 23, 12, 00, 00),
-                        Instructor = new bu.Instructor
-                        {
-                            Name = "Johan"
-                        }
-                    },
-
-                }
+                Courses = courses
             };
 
             return View(viewModel);
