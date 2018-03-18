@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  courseapp:
+    image: courseapp
+    build:
+      context: .
+      dockerfile: CourseApp/Dockerfile
+    depends_on:
+      - coursewebapi
+    environment:
+      - "Api:BaseAddress=http://coursewebapi"
+
+  coursewebapi:
+    image: coursewebapi
+    build:
+      context: .
+      dockerfile: CourseWebApi/Dockerfile
+    environment:
+      - "ConnectionStrings:DefaultConnection=Server=coursesdemo.database.windows.net;Database=Courses;User ID=***;Password=*****;MultipleActiveResultSets=true"
+
